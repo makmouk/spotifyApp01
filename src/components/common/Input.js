@@ -26,21 +26,17 @@ const styles = {
     paddingTop: 5,
     paddingBottom: 5,
     fontSize: 24,
-    lineHeight: 23,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#007aff',
     marginLeft: 10,
     marginRight: 10,
-    marginBottom: 50,
-    flex:1,
-    textAlign:'center'
+    marginBottom: 5,
+    marginTop: 10,
+    textAlign: 'center'
   },
   containerStyle: {
-    height: 40,
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center'
+    backgroundColor: 'white'
   }
 };
 

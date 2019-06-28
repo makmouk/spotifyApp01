@@ -2,8 +2,7 @@ import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import Search from './components/Search';
-import EmployeeCreate from './components/EmployeeCreate';
-import EmployeeEdit from './components/EmployeeEdit';
+import Albums from './components/Albums';
 
 const RouterComponent = () => {
   return (
@@ -19,8 +18,7 @@ const RouterComponent = () => {
             title="Spotify Artist Search"
             initial
           />
-          <Scene key="employeeCreate" component={EmployeeCreate} title="Spotify Artist Search" />
-          <Scene key="employeeEdit" component={EmployeeEdit} title="Spotify Artist Search" />
+          <Scene key="Albums" component={Albums} title="Spotify Albums" />
         </Scene>
       </Scene>
 

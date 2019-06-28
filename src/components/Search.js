@@ -1,36 +1,50 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
-import { searchText } from '../actions';
+import { View, ScrollView, Text, Platform } from 'react-native';
+import { searchText, getAlbums } from '../actions';
 import { Input } from './common'
+import ArtistDetail from './ArtistDetail';
 
 class EmployeeList extends Component {
 
 
+  renderArtists() {
+    if (this.props.data.artists)
+      return this.props.data.artists.items.map(artist =>
+        <ArtistDetail key={artist.id} artist={artist} getAlbums={this.props.getAlbums} />
+      );
+    return (<Text></Text>)
+  }
+
+
   render() {
     return (
-      <View style={styles.container}>
-        <Input
-          placeholder="Search for an artist…"
-          value={this.props.search}
-          onChangeText={value => this.props.searchText({ prop: 'search', value })}
-        />
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <View style={{ flex: 1, marginTop: Platform.OS === 'ios' ? 60 : 0 }}>
+          <Input
+            placeholder="Search for an artist…"
+            value={this.props.search.value || ""}
+            onChangeText={value => this.props.searchText({ prop: 'search', value })}
+          />
+          <ScrollView style={styles.container}>
+            {this.renderArtists()}
+          </ScrollView>
+        </View>
       </View>
     );
   }
 }
 
-const mapStateToProps = ({search}) => {
-  return { search };
+const mapStateToProps = (state) => {
+  return { search: state.auth.search, data: state.auth.data };
 };
 
 const styles = {
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
     backgroundColor: 'white'
   }
 };
 
-export default connect(mapStateToProps, { searchText })(EmployeeList);
+export default connect(mapStateToProps, { searchText, getAlbums })(EmployeeList);
