@@ -1,14 +1,8 @@
 import React from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
-import { Card, CardSection } from './common';
+import { Card, CardSection, getStars } from './common';
 
 
-export const getStars = (popularity) => {
-    var stars = '';
-    for (let i = 0; i < Number.parseFloat(popularity / 20).toFixed(0); i++)
-        stars = stars + '☆ ';
-    return (<Text style={styles.starStyle}>{stars}</Text>);
-}
 export const profileImage = (images) => {
     if (images[0])
         return (<CardSection>
@@ -39,7 +33,7 @@ const ArtistDetail = ({ artist, getAlbums }) => {
                     <View style={headerContentStyle}>
                         <Text style={headerTextStyle}>{name}</Text>
                         <Text>{followers.total + " followers"}</Text>
-                        {getStars(popularity)}
+                        {getStars(popularity, 'gold', 24)}
                     </View>
 
                 </CardSection>
@@ -67,12 +61,6 @@ const styles = {
         height: 300,
         flex: 1,
         width: null
-    },
-    starStyle: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: 'gold',
-        marginTop: 20
     }
 };
 
