@@ -22,7 +22,7 @@ class Albums extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor:'white' }}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         {this.renderName()}
         <Text style={{ marginLeft: 5 }}>Albums</Text>
         <ScrollView style={styles.container}>
@@ -33,8 +33,8 @@ class Albums extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { album: state.auth.album.items, name: state.auth.name };
+const mapStateToProps = ({ fetch }) => {
+  return { album: fetch.album, name: fetch.name };
 };
 
 const styles = {

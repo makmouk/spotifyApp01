@@ -1,5 +1,5 @@
 import { getValidSPObj } from '../../constant';
-import { FETCHED_DATA } from '../types';
+import { FETCHED_ARTIST } from '../types';
 
 export const searchArtist = async (text, dispatch) => {
     const sp = await getValidSPObj();
@@ -17,5 +17,5 @@ export const searchArtist = async (text, dispatch) => {
     };
     fetch(FETCH_URL, myOptions)
         .then(response => response.json())
-        .then(json => dispatch({ type: FETCHED_DATA, payload: json }))
+        .then(json => dispatch({ type: FETCHED_ARTIST, payload: json }))
 };

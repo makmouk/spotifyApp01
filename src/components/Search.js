@@ -9,8 +9,8 @@ class EmployeeList extends Component {
 
 
   renderArtists() {
-    if (this.props.data.artists)
-      return this.props.data.artists.items.map(artist =>
+    if (this.props.artist.artists)
+      return this.props.artist.artists.items.map(artist =>
         <ArtistDetail key={artist.id} artist={artist} getAlbums={this.props.getAlbums} />
       );
     return (<Text></Text>)
@@ -35,8 +35,8 @@ class EmployeeList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { search: state.auth.search, data: state.auth.data };
+const mapStateToProps = ({ search, fetch }) => {
+  return { search: search.search, artist: fetch.artist };
 };
 
 const styles = {

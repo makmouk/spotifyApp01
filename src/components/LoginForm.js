@@ -1,29 +1,18 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions';
 import { Button } from './common';
-import { Actions } from 'react-native-router-flux';
-import { refreshTokens } from '../constant';
-import { AsyncStorage } from 'react-native';
 
 
 class LoginForm extends Component {
 
-  loginUser = async () => {
-    const tokenExpirationTime = await AsyncStorage.getItem('expirationTime');
-    if (!tokenExpirationTime || new Date().getTime() > tokenExpirationTime) {
-      await refreshTokens();
-      Actions.main();
-    } else {
-      Actions.main();
-    }
-  };
-
   render() {
     return (
       <View style={styles.container}>
-        <Button onPress={this.loginUser.bind(this)}>
+        <Button onPress={this.props.loginUser}>
           Login
-      </Button>
+        </Button>
       </View>
     );
   }
@@ -38,4 +27,4 @@ const styles = {
   }
 };
 
-export default LoginForm;
+export default connect(null, { loginUser })(LoginForm);

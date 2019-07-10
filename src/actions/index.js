@@ -1,2 +1,2 @@
-export * from './searchArtistAction';
-export * from './getAlbumAction';
+export * from './fetchAction';
+export * from './authAction';

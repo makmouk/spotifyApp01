@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import Reducer from './Reducer';
+import fetchReducer from './fetchReducer';
+import searchReducer from './searchReducer';
 
 export default combineReducers({
-  auth: Reducer
+  fetch: fetchReducer,
+  search: searchReducer
 });
