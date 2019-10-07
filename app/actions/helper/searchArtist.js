@@ -1,4 +1,4 @@
-import { getValidSPObj } from '../../constant';
+import { getValidSPObj } from '../../services';
 import { FETCHED_ARTIST } from '../types';
 
 export const searchArtist = async (text, dispatch) => {

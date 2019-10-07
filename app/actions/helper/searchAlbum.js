@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux';
 import { FETCHED_ALBUMS } from '../types';
-import { getValidSPObj } from '../../constant';
+import { getValidSPObj } from '../../services';
 
 export const searchAlbum = async (id, dispatch, name) => {
     const sp = await getValidSPObj();

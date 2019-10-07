@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, Image } from 'react-native';
-import SpotifyLogo from '../../pics/logo.png';
+import SpotifyLogo from '../assets/images/logo.png';
 
 const Button = ({ onPress, children }) => {
   const { buttonStyle, textStyle, logoImg } = styles;

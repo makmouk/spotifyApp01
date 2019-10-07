@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux';
 import { AsyncStorage } from 'react-native';
-import { refreshTokens } from '../../constant';
+import { refreshTokens } from '../../services';
 
 export const login = async () => {
   const tokenExpirationTime = await AsyncStorage.getItem('expirationTime');
