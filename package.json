@@ -20,7 +20,7 @@
     "firebase": "^6.2.2",
     "http": "0.0.0",
     "i18n-js": "^3.3.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
